@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 function App() {
-  const [criptos, setCriptos] = useState([]);
+  const [criptos, setCriptos] = useState();
 
   useEffect(() => {
     fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1')
@@ -13,6 +13,8 @@ function App() {
         console.error("La petición falló");
       });
   }, []);
+
+  if (!criptos) return <span>Cargando...</span>
 
   return (
     <>
