@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios"
 import "./App.css"
+import "./main.css"
+import Crypto from "./Cripto.jsx"
 
 function App() {
 
@@ -12,6 +14,7 @@ function App() {
     axios.get(`${API_URL}coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1`)
       .then((data) => {
         setCriptos(data.data);
+        // console.log(data)
       })
       .catch(() => {
         console.error("La petición falló");
@@ -21,16 +24,18 @@ function App() {
   if (!criptos) return <span>Cargando...</span>
 
   return (
-    <>
+    <div className="app-container">
       <h1>Lista de criptomonedas</h1>
-      <ol>
-        {criptos.map(({ id, name, current_price }) => (
-          <li key={id}>
-            Nombre: {name} - Precio: ${current_price}
-          </li>
+      <div className="cripto-container">
+        {criptos.map(({ id, name: cryptoName, current_price: current_price, symbol: symbol, price_change_percentage_24h: price_change_percentage_24h }) => (
+          <Crypto key={id} 
+          name={cryptoName} 
+          current_price={current_price} 
+          symbol={symbol} 
+          price_change_percentage_24h={price_change_percentage_24h} />
         ))}
-      </ol>
-    </>
+      </div>
+    </div>
   );
 }
 
