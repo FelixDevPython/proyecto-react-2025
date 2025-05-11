@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import axios from "axios"
 import "./Cuadricula.css"
 import Crypto from "./cripto/Cripto.jsx"
-import CriptoPage from "./cripto/CriptoPage.jsx";
 
 function Cuadricula() {
 
@@ -14,7 +13,7 @@ function Cuadricula() {
     axios.get(`${API_URL}coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1`)
       .then((data) => {
         setCriptos(data.data);
-        // console.log(data)
+        console.log(data)
       })
       .catch(() => {
         console.error("La petición falló");
