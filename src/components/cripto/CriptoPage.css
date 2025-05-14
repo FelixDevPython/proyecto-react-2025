@@ -3,67 +3,85 @@
   grid-template-columns: 480px 1fr;
   gap: 2rem;
   position: relative;
+  padding: 2rem;
 }
 
-.cripto-page-container .info {
+/* Sección izquierda - información principal */
+.cripto-info {
   position: sticky;
   top: 2rem;
   align-self: start;
 }
 
-.cripto-page-container .history {
-  grid-column-start: 2;
-}
-
-.cripto-page-container .main-info {
+/* Título y nombre */
+.cripto-main-info {
   margin-bottom: 2rem;
-}
-
-.cripto-page-container .symbol {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.cripto-page-container .details {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 8px;
-  padding: 1.5rem;
-  padding-left: 2.5rem;
-}
-
-.cripto-page-container .detail {
-  margin-bottom: 1rem;
 }
 
 .cripto-page-container h1 {
   font-weight: 600;
   font-size: 3rem;
-  margin-bottom: .2rem;
+  margin-bottom: 0.2rem;
 }
 
-table {
-  width: 100%;
+.cripto-symbol {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Detalles */
+.cripto-details {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 8px;
-  padding: 1rem;
+  padding: 1.5rem 2.5rem;
 }
 
-td, th {
-  padding: 1rem;
+.cripto-detail {
+  margin-bottom: 1rem;
+}
+
+.cripto-label {
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+/* Sección derecha - historial */
+.cripto-history {
+  grid-column-start: 2;
+}
+
+.cripto-history h2 {
+  margin-bottom: 1rem;
+}
+
+/* Tabla de historial */
+table {
+  width: 100%;
   border-collapse: collapse;
-  text-align: left;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  overflow: hidden;
+  font-size: 0.95rem;
 }
 
 thead tr {
+  background-color: rgba(255, 255, 255, 0.08);
   border-bottom: 1px solid rgba(128, 128, 128, 0.34);
 }
 
 tbody tr:nth-child(odd) {
-  background: rgba(255, 255, 255, 0.04);
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
 }
 
-.history .price {
+th,
+td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.price {
   color: #4FFF60;
+  font-weight: bold;
 }
