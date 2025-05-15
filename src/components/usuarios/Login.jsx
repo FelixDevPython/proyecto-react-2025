@@ -1,7 +1,11 @@
 import { useState } from "react"
+import { useNavigate, Navigate } from "react-router-dom"
 import axios from "axios"
+import "./Login.css"
 
 const Login = () => {
+
+    const navigation = useNavigate()
 
     const [user, setUser] = useState({
         email: "",
@@ -27,12 +31,15 @@ const Login = () => {
         .then((response) => {
             console.log("Login success:", response.data);
             localStorage.setItem("tokenMarket", response.data.token);
+            navigation("/")
         })
 
         .catch((error) => {
             console.error("Login failed:", error.response?.data || error.message)
         });
     }
+
+    if (localStorage.getItem("tokenMarket")) return <Navigate to="/" />
 
     return (
         <div className="login-container">
