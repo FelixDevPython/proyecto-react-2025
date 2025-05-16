@@ -15,10 +15,13 @@ const Menu = () => {
                 <li><NavLink to="/">Inicio</NavLink></li>
                 <li><NavLink to="/criptomonedas">Lista de criptos</NavLink></li>
                 <li><NavLink to="/perfil">Perfil de {usuario.name}</NavLink></li>
-                <li><a onClick={() => {
-                    localStorage.removeItem("tokenMarket")
-                    navigation("/login")
-                }}>Cerrar sesión</a></li>
+                <li>
+                    <a 
+                    className="cerrar-session" 
+                    onClick={() => {
+                        localStorage.removeItem("tokenMarket")
+                        navigation("/login");
+                    }}>Cerrar sesión</a></li>
             </ul>
         </nav>
     )

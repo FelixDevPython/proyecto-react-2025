@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom"
+import "./Home.css"
 
 const Home = () => {
     return (
-        <>
-            <h1>Hola, bienvenido a CriptoMarket</h1>
-            <p>Debes conocer las 100 criptos mas usadas en el mercado</p>
-            <Link to="/criptomonedas">Ver criptomonedas</Link>
-        </>
+        <div className="home-container">
+            <h1 className="title">Hola, bienvenido a CriptoMarket</h1>
+            <p className="subtitle">Debes conocer las 100 criptos mas usadas en el mercado</p>
+            <Link to="/criptomonedas" className="link">Ver criptomonedas</Link>
+        </div>
     )
 }
 

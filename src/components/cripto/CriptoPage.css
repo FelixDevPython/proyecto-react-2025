@@ -6,14 +6,12 @@
   padding: 2rem;
 }
 
-/* Sección izquierda - información principal */
 .cripto-info {
   position: sticky;
   top: 2rem;
   align-self: start;
 }
 
-/* Título y nombre */
 .cripto-main-info {
   margin-bottom: 2rem;
 }
@@ -28,7 +26,6 @@
   color: rgba(255, 255, 255, 0.5);
 }
 
-/* Detalles */
 .cripto-details {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -45,7 +42,6 @@
   margin-right: 0.5rem;
 }
 
-/* Sección derecha - historial */
 .cripto-history {
   grid-column-start: 2;
 }
@@ -54,7 +50,6 @@
   margin-bottom: 1rem;
 }
 
-/* Tabla de historial */
 table {
   width: 100%;
   border-collapse: collapse;

@@ -7,10 +7,10 @@ const App = () => {
     if (!localStorage.getItem("tokenMarket")) return <Navigate to="/login" />
 
     return (
-        <>
+        <div className="app-container">
             <Menu />
             <Outlet />
-        </>
+        </div>
     )
 }
 

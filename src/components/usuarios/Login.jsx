@@ -20,6 +20,8 @@ const Login = () => {
 
         setCargando(true)
 
+        setError(null)
+
         console.log("https://reqres.in/api/login", user);
 
         console.log("user data:", JSON.stringify(user));
