@@ -12,8 +12,13 @@ const Login = () => {
         password: ""
     })
 
+    const [ cargando, setCargando ] = useState(false)
+    const [ error, setError ] = useState()
+
     const submit = (e) => {
         e.preventDefault();
+
+        setCargando(true)
 
         console.log("https://reqres.in/api/login", user);
 
@@ -30,12 +35,16 @@ const Login = () => {
         
         .then((response) => {
             console.log("Login success:", response.data);
+            setCargando(false)
             localStorage.setItem("tokenMarket", response.data.token);
             navigation("/")
         })
 
         .catch((error) => {
+            setCargando(false)
             console.error("Login failed:", error.response?.data || error.message)
+            console.table(error)
+            setError(error.response?.data?.error || "Error al iniciar sesión")
         });
     }
 
@@ -55,7 +64,8 @@ const Login = () => {
                         setUser({
                             ...user,
                             email: e.target.value
-                        })
+                        });
+                        setError(null)
                     }}
                 />
                 </div>
@@ -69,16 +79,19 @@ const Login = () => {
                         setUser({
                             ...user,
                             password: e.target.value
-                        })
+                        });
+                        setError(null)
                     }}
                 />
                 </div>
                 <div className="submit">
-                    <input type="submit" value="Ingresar" />
+                    <input type="submit" value={cargando ? "cargando..." : "Ingresar"} className="link" />
                 </div>
             </form>
+            {
+                error && <span className="error">Error: {error}</span>
+            }
         </div>
-            
     )
 }
 
